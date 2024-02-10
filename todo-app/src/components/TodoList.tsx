@@ -18,7 +18,7 @@ const TodoList: React.FC = () => {
 
   const fetchTodos = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/todos'); // Replace with your API endpoint
+      const response = await axios.get('https://todo-backend-l7bb.onrender.com/api/todos'); 
       setTodos(response.data);
       console.log(todos)
     } catch (error) {
@@ -29,7 +29,7 @@ const TodoList: React.FC = () => {
   const addTodo = async () => {
     if (newTodo.trim() !== '') {
       try {
-        const response = await axios.post('http://localhost:5000/api/todos', { text: newTodo });
+        const response = await axios.post('https://todo-backend-l7bb.onrender.com/api/todos', { text: newTodo });
         setTodos([...todos, response.data]);
         setNewTodo('');
       } catch (error) {
@@ -42,7 +42,7 @@ const TodoList: React.FC = () => {
     try {
       console.log(id);
       
-      await axios.delete(`http://localhost:5000/api/todos/${id}`); // Replace with your API endpoint
+      await axios.delete(`https://todo-backend-l7bb.onrender.com/api/todos/${id}`); 
       const updatedTodos = todos.filter((todo) => todo._id !== id);
       setTodos(updatedTodos);
     } catch (error) {
